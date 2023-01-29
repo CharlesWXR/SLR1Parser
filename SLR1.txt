@@ -1,0 +1,22 @@
+$DEPENDENCIES {
+    cn.edu.njnu.SLR1.demo.element
+}
+$VN {
+E E1 T T1 F
+}
+$VT {
+(int, TypeEnum.Int)
+(double, TypeEnum.Double)
+(+,OperatorEnum.Plus)
+(*,OperatorEnum.Multiply)
+((,OperatorEnum.LBracket)
+(),OperatorEnum.RBracket)
+(empty,TypeEnum.Empty)
+}
+G[E] {{
+E: ${T}${E1}
+E1: ${+}${T}${E1}|${empty}
+T: ${F}${T1}
+T1: ${*}${F}${T1}|${empty}
+F: ${(}${E}${)}|${int}|${double}
+}}
